@@ -17,4 +17,5 @@
     <app-sidebar-form *ngIf="displayForm" [availableTimes]="availableTimes" (close)="closeModal()"
         (submitSuccess)="onSubmitSuccess()">
     </app-sidebar-form>
+    <app-confirmation-modal *ngIf="showConfirmation" (close)="closeConfirmation()"></app-confirmation-modal>
 </div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { SidebarFormComponent } from '../../components/sidebar-form/sidebar-form.component';
+import { ConfirmationModalComponent } from '../../components/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { SidebarFormComponent } from '../../components/sidebar-form/sidebar-form
     CommonModule,
     ReactiveFormsModule,
     SidebarFormComponent,
+    ConfirmationModalComponent,
     RouterLink,
   ],
   templateUrl: './home.component.html',
@@ -18,6 +20,7 @@ import { SidebarFormComponent } from '../../components/sidebar-form/sidebar-form
 })
 export class HomeComponent implements OnInit {
   displayForm = false;
+  showConfirmation = true;
   availableTimes = [
     '10:00',
     '11:00',
@@ -49,6 +52,10 @@ export class HomeComponent implements OnInit {
 
   onSubmitSuccess() {
     this.displayForm = false;
+    this.showConfirmation = true;
     this.router.navigate(['/']);
+  }
+  closeConfirmation() {
+    this.showConfirmation = false;
   }
 }
