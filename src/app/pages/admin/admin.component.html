@@ -19,7 +19,17 @@
                 <ng-container *ngIf="getAppointmentByTime(time) as appointment; else emptySlot">
                     <span class="appointment-customer">Name: {{ appointment.customerName }}</span>
                     <span class="appointment-customer">Tlf: {{ appointment.phone }}</span>
-                    <app-red-button (click)="deleteAppointment(appointment._id)">Delete</app-red-button>
+                    <svg (click)="deleteAppointment(appointment._id)" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="red" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 6h18" />
+                        <path d="M8 6v14" />
+                        <path d="M12 6v14" />
+                        <path d="M16 6v14" />
+                        <path d="M5 6V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                    </svg>
+
                     <button (click)="openEditForm(appointment)" class="update-button">Update</button>
                 </ng-container>
                 <ng-template #emptySlot>
