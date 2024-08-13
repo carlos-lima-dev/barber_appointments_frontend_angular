@@ -20,7 +20,7 @@ import { ConfirmationModalComponent } from '../../components/confirmation-modal/
 })
 export class HomeComponent implements OnInit {
   displayForm = false;
-  showConfirmation = true;
+  showConfirmation = false;
   availableTimes = [
     '10:00',
     '11:00',
