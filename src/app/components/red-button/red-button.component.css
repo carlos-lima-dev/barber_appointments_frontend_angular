@@ -1,0 +1,25 @@
+.red-button {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.red-button:hover {
+  background-color: #e04343;
+  transform: scale(1.05);
+}
+
+.red-button:focus {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .red-button {
+    padding: 5px 10px;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <img src="https://static.vecteezy.com/system/resources/previews/007/978/655/non_2x/background-vintage-barbershop-with-diagonal-colored-stripes-illustration-vector.jpg"
+        alt="">
+    <main class="container">
+        <div class="title">
+            <h1 routerLink="/home">ACUTE BARBERS</h1>
+        </div>
+        <button (click)="showAppointment()">Agendar</button>
+    </main>
+    <footer>
+        <div>
+            <span routerLink="/contact">Contactos</span> |
+            <span routerLink="https://facebook.com" target="_blank">Facebook</span> |
+            <span routerLink="https://instagram.com" target="_blank">Instagram</span>
+        </div>
+    </footer>
+    <app-sidebar-form *ngIf="displayForm" [availableTimes]="availableTimes" (close)="closeModal()"
+        (submitSuccess)="onSubmitSuccess()">
+    </app-sidebar-form>
+</div>

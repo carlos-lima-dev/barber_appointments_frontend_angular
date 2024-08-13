@@ -1,0 +1,250 @@
+.appointments-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e1d9d1;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-size: 2rem;
+  padding: 10px;
+  text-align: center;
+  color: #333333;
+}
+
+.date-picker-container {
+  margin-bottom: 0px;
+}
+
+.date-label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #666666;
+}
+
+.date-picker-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #dddddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.date-picker-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.appointments-list {
+  margin: 0;
+}
+
+.appointments-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appointment-item {
+  padding: 15px;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-item:hover {
+  background-color: #e9ecef;
+}
+
+.appointment-time {
+  font-weight: bold;
+  color: #333333;
+}
+
+.appointment-customer {
+  color: #555555;
+}
+
+.no-appointments-message {
+  text-align: center;
+  color: #888888;
+  font-size: 1.1rem;
+}
+
+.dashboard_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #dddddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard_header h1 {
+  font-size: 1.5rem;
+  color: #333333;
+  margin: 0;
+}
+
+.delete-button,
+.update-button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.update-button {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.update-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.edit-form-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-form-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.edit-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form-container label {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: #666666;
+}
+
+.edit-form-container input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.edit-form-container input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.edit-form-container button[type="submit"] {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-form-container button[type="submit"]:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.edit-form-container button[type="button"] {
+  background-color: red;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-form-container button[type="button"]:hover {
+  background-color: red;
+  transform: scale(1.05);
+}
+.new-appointment-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.new-appointment-button_padding {
+  padding: 1rem 0rem;
+}
+
+.new-appointment-button {
+  background-color: #28a745 !important;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.new-appointment-button:hover {
+  background-color: #218838 !important;
+  transform: scale(1.05);
+}
+@media (max-width: 600px) {
+  .appointments-container {
+    padding: 10px;
+  }
+  .title {
+    padding: 5px;
+  }
+  .delete-button,
+  .update-button {
+    padding: 5px 10px;
+  }
+  .appointment-item {
+    padding: 10px;
+  }
+  .appointment-customer {
+    font-size: 0.8rem;
+  }
+  .date-picker-input {
+    padding: 5px;
+  }
+  .new-appointment-button {
+    padding: 5px 10px;
+  }
+}

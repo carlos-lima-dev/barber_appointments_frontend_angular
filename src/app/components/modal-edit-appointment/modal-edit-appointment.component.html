@@ -1,0 +1,26 @@
+<div class="modal-overlay" *ngIf="isVisible">
+    <div class="modal-content">
+        <form (ngSubmit)="updateAppointment()">
+            <label for="time">Time:</label>
+            <input id="time" type="time" [(ngModel)]="appointment.time" name="time" required />
+
+            <label for="customerName">Name:</label>
+            <input id="customerName" type="text" [(ngModel)]="appointment.customerName" name="customerName" required />
+
+            <label for="phone">Phone:</label>
+            <input id="phone" type="tel" [(ngModel)]="appointment.phone" name="phone" required />
+
+            <label for="email">Email:</label>
+            <input id="email" type="email" [(ngModel)]="appointment.email" name="email" required />
+
+            <label for="date">Date:</label>
+            <input id="date" type="date" [(ngModel)]="appointment.date" name="date" required />
+
+            <label for="service">Service:</label>
+            <input id="service" type="text" [(ngModel)]="appointment.service" name="service" required />
+
+            <button type="submit">Save Changes</button>
+            <button type="button" (click)="cancel()">Cancel</button>
+        </form>
+    </div>
+</div>

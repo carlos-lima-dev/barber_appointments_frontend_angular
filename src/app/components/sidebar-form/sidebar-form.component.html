@@ -1,0 +1,75 @@
+<div class="sidebar">
+    <button class="close-btn" (click)="handleCancel()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+                d="M18.36 6.64a.996.996 0 0 0-1.41 0L12 11.59 7.05 6.64a.996.996 0 1 0-1.41 1.41L10.59 13l-4.95 4.95a.996.996 0 1 0 1.41 1.41L12 14.41l4.95 4.95a.996.996 0 1 0 1.41-1.41L13.41 13l4.95-4.95c.39-.39.39-1.03 0-1.41z" />
+        </svg>
+    </button>
+    <form [formGroup]="appointmentForm" (ngSubmit)="handleSubmit()">
+        <div>
+            <label>Nome</label>
+            <input formControlName="customerName" placeholder="Nome" required />
+            <div
+                *ngIf="appointmentForm.get('customerName')?.invalid && (appointmentForm.get('customerName')?.dirty || appointmentForm.get('customerName')?.touched)">
+                <small *ngIf="appointmentForm.get('customerName')?.errors?.['required']">O nome é obrigatório.</small>
+                <small *ngIf="appointmentForm.get('customerName')?.errors?.['minlength']">O nome deve ter pelo menos 3
+                    caracteres.</small>
+            </div>
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="Email" required />
+            <div
+                *ngIf="appointmentForm.get('email')?.invalid && (appointmentForm.get('email')?.dirty || appointmentForm.get('email')?.touched)">
+                <small *ngIf="appointmentForm.get('email')?.errors?.['required']">O email é obrigatório.</small>
+                <small *ngIf="appointmentForm.get('email')?.errors?.['pattern']">Por favor, insira um email
+                    válido.</small>
+            </div>
+        </div>
+        <div>
+            <label>Telemovel</label>
+            <input type="tel" formControlName="phone" placeholder="Telemovel" required />
+            <div
+                *ngIf="appointmentForm.get('phone')?.invalid && (appointmentForm.get('phone')?.dirty || appointmentForm.get('phone')?.touched)">
+                <small *ngIf="appointmentForm.get('phone')?.errors?.['required']">O telemóvel é obrigatório.</small>
+                <small *ngIf="appointmentForm.get('phone')?.errors?.['pattern']">Por favor, insira um número de
+                    telemóvel válido.</small>
+            </div>
+        </div>
+        <div>
+            <label>Dia</label>
+            <input type="date" formControlName="date" [min]="today" required />
+            <div
+                *ngIf="appointmentForm.get('date')?.invalid && (appointmentForm.get('date')?.dirty || appointmentForm.get('date')?.touched)">
+                <small *ngIf="appointmentForm.get('date')?.errors?.['required']">Por favor, selecione um dia.</small>
+            </div>
+        </div>
+        <div>
+            <label>Horas</label>
+            <select formControlName="time" required>
+                <option value="" disabled>Selecione uma hora</option>
+                <option *ngFor="let time of filteredTimes" [value]="time">{{ time }}</option>
+            </select>
+            <div
+                *ngIf="appointmentForm.get('time')?.invalid && (appointmentForm.get('time')?.dirty || appointmentForm.get('time')?.touched)">
+                <small *ngIf="appointmentForm.get('time')?.errors?.['required']">Por favor, selecione uma hora.</small>
+            </div>
+        </div>
+        <div>
+            <label>Serviço</label>
+            <select formControlName="service" required>
+                <option value="" disabled>Selecione um serviço</option>
+                <option value="Corte">Corte</option>
+                <option value="Corte e Barba">Corte e Barba</option>
+            </select>
+            <div
+                *ngIf="appointmentForm.get('service')?.invalid && (appointmentForm.get('service')?.dirty || appointmentForm.get('service')?.touched)">
+                <small *ngIf="appointmentForm.get('service')?.errors?.['required']">Por favor, selecione um
+                    serviço.</small>
+            </div>
+        </div>
+        <button type="submit" [disabled]="isSundayOrMonday(appointmentForm.value.date)">Agendar</button>
+        <button type="button" (click)="handleCancel()">Cancelar</button>
+    </form>
+</div>

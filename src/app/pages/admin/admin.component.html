@@ -1,0 +1,38 @@
+<div class="appointments-container">
+    <div class="dashboard_header" *ngIf="user">
+        <h1>Welcome,{{ user.name }}.</h1>
+        <app-red-button (click)="logout()">Logout</app-red-button>
+    </div>
+    <div class="date-picker-container">
+        <h1 class="title">Daily Appointments</h1>
+        <label for="date-picker" class="date-label">Select Date:</label>
+        <input id="date-picker" type="date" [min]="today" [(ngModel)]="selectedDate" (change)="onDateChange($event)"
+            class="date-picker-input" />
+    </div>
+    <div class="new-appointment-button_padding">
+        <button (click)="openSidebar()" class="new-appointment-button">New Appointment</button>
+    </div>
+    <div *ngIf="availableTimes.length > 0" class="appointments-list">
+        <ul>
+            <li *ngFor="let time of availableTimes" class="appointment-item">
+                <span class="appointment-time">{{ time }}</span>
+                <ng-container *ngIf="getAppointmentByTime(time) as appointment; else emptySlot">
+                    <span class="appointment-customer">Name: {{ appointment.customerName }}</span>
+                    <span class="appointment-customer">Tlf: {{ appointment.phone }}</span>
+                    <app-red-button (click)="deleteAppointment(appointment._id)">Delete</app-red-button>
+                    <button (click)="openEditForm(appointment)" class="update-button">Update</button>
+                </ng-container>
+                <ng-template #emptySlot>
+                    <span class="no-appointment">Available Time</span>
+                </ng-template>
+            </li>
+        </ul>
+    </div>
+
+    <app-modal-edit-appointment [appointment]="selectedAppointment" [isVisible]="showEditForm" (close)="cancelEdit()"
+        (submitSuccess)="onSubmitSuccess()">
+    </app-modal-edit-appointment>
+
+    <app-sidebar-form *ngIf="showSidebar" [availableTimes]="availableTimes" (close)="closeSidebar()"
+        (submitSuccess)="onSubmitSuccess()"></app-sidebar-form>
+</div>
