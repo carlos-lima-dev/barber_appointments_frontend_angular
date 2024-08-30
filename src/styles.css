@@ -142,13 +142,6 @@ html {
             }
         }
 
-        /* Media query for mobile devices */
-        @media (max-width: 480px) {
-            html {
-                font-size: 50%;
-                /* 50% of 16px = 8px */
-            }
-        }
 
         /* Base body font size */
         body {
