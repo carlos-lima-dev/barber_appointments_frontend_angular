@@ -128,14 +128,9 @@ table {
   border-spacing: 0;
 }
 
-
-html {
-      font-size: 61.5%;
-     /* Base font-size = 10px */
-}
 body {
    font-family: "Courier New", Courier, monospace;
-   font-size: 1.6rem;
+
     /* 16px */
    line-height: 1.6;
 }
