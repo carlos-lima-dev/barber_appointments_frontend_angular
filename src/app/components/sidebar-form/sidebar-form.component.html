@@ -42,9 +42,15 @@
             <input type="date" formControlName="date" [min]="today" required />
             <div
                 *ngIf="appointmentForm.get('date')?.invalid && (appointmentForm.get('date')?.dirty || appointmentForm.get('date')?.touched)">
-                <small *ngIf="appointmentForm.get('date')?.errors?.['required']">Por favor, selecione um dia.</small>
+                <small *ngIf="appointmentForm.get('date')?.errors?.['required']">
+                    Por favor, selecione um dia.
+                </small>
+                <small *ngIf="appointmentForm.get('date')?.errors?.['forbiddenDate']">
+                    Não é possível agendar aos domingos ou segundas-feiras.
+                </small>
             </div>
         </div>
+
         <div>
             <label>Horas</label>
             <select formControlName="time" required>
@@ -56,6 +62,7 @@
                 <small *ngIf="appointmentForm.get('time')?.errors?.['required']">Por favor, selecione uma hora.</small>
             </div>
         </div>
+
         <div>
             <label>Serviço</label>
             <select formControlName="service" required>
@@ -69,7 +76,8 @@
                     serviço.</small>
             </div>
         </div>
-        <button type="submit" [disabled]="isSundayOrMonday(appointmentForm.value.date)">Agendar</button>
+
+        <button type="submit" [disabled]="appointmentForm.invalid">Agendar</button>
         <button type="button" (click)="handleCancel()">Cancelar</button>
     </form>
 </div>

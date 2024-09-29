@@ -74,6 +74,7 @@
 
 .appointment-customer {
   color: #555555;
+  min-width: 80px;
 }
 
 .no-appointments-message {

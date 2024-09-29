@@ -17,8 +17,8 @@
             <li *ngFor="let time of availableTimes" class="appointment-item">
                 <span class="appointment-time">{{ time }}</span>
                 <ng-container *ngIf="getAppointmentByTime(time) as appointment; else emptySlot">
-                    <span class="appointment-customer">Name: {{ appointment.customerName }}</span>
-                    <span class="appointment-customer">Tlf: {{ appointment.phone }}</span>
+                    <span class="appointment-customer">Name:<br /> {{ appointment.customerName }}</span>
+                    <span class="appointment-customer">Tlf:<br /> {{ appointment.phone }}</span>
                     <svg (click)="deleteAppointment(appointment._id)" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="red" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">

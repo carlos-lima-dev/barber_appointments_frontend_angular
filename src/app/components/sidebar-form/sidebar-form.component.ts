@@ -4,6 +4,8 @@ import {
   FormGroup,
   ReactiveFormsModule,
   Validators,
+  AbstractControl,
+  ValidationErrors,
 } from '@angular/forms';
 import { AppointmentsService } from '../../service/appointments.service';
 import { Appointment } from '../../interfaces/appointment';
@@ -41,7 +43,7 @@ export class SidebarFormComponent implements OnInit {
         ],
       ],
       phone: ['', [Validators.required, Validators.pattern(/^[0-9]{9}$/)]],
-      date: ['', Validators.required],
+      date: ['', [Validators.required, this.forbidSundayAndMonday()]], // Validador personalizado para domingos e segundas
       time: ['', Validators.required],
       service: ['', Validators.required],
       barber: ['Luis'],
@@ -62,7 +64,6 @@ export class SidebarFormComponent implements OnInit {
     } else {
       this.appointmentService.getDailyAppointments(date).subscribe(
         (appointments) => {
-          // Assuming `appointments` returns the booked times, you can calculate available times
           const bookedTimes = appointments.map((app) => app.time);
           this.filteredTimes = this.availableTimes.filter(
             (time) => !bookedTimes.includes(time)
@@ -100,5 +101,16 @@ export class SidebarFormComponent implements OnInit {
   isSundayOrMonday(date: string): boolean {
     const day = new Date(date).getDay();
     return day === 0 || day === 1; // Domingo = 0, Segunda = 1
+  }
+
+  // Validador personalizado para impedir agendamentos aos domingos ou segundas-feiras
+  forbidSundayAndMonday() {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const date = control.value;
+      if (date && this.isSundayOrMonday(date)) {
+        return { forbiddenDate: true }; // Retorna um erro se for domingo ou segunda
+      }
+      return null; // Retorna null se não houver erro
+    };
   }
 }
