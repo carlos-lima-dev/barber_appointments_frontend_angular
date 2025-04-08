@@ -6,6 +6,6 @@ export interface Appointment {
   date: string;
   time: string;
   service: string;
-  barber: string;
+  artist: string;
   notes?: string;
 }
