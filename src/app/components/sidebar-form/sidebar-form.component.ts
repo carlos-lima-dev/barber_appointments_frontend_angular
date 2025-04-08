@@ -46,7 +46,7 @@ export class SidebarFormComponent implements OnInit {
       date: ['', [Validators.required, this.forbidSundayAndMonday()]], // Validador personalizado para domingos e segundas
       time: ['', Validators.required],
       service: ['', Validators.required],
-      barber: ['Luis'],
+      artist: ['Luis'],
     });
   }
 
