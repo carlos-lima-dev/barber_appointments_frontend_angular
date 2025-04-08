@@ -7,7 +7,7 @@ import { Appointment } from '../interfaces/appointment';
   providedIn: 'root',
 })
 export class AppointmentsService {
-  private apiUrl = 'https://barber-api-t60m.onrender.com/appointments';
+  private apiUrl = 'https://https://bookingapi-nqqx.onrender.com/appointments';
 
   constructor(private http: HttpClient) {}
 
