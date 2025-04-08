@@ -7,7 +7,7 @@ import { Appointment } from '../interfaces/appointment';
   providedIn: 'root',
 })
 export class AppointmentsService {
-  private apiUrl = 'https://https://bookingapi-nqqx.onrender.com';
+  private apiUrl = 'https://https://bookingapi-nqqx.onrender.com/appointments';
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +17,7 @@ export class AppointmentsService {
   }
 
   bookAppointment(appointment: Appointment): Observable<any> {
-    return this.http.post(this.apiUrl/appointments, appointment);
+    return this.http.post(this.apiUrl, appointment);
   }
 
   deleteAppointment(appointmentId: string): Observable<void> {
