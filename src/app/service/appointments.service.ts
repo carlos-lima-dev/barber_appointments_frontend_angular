@@ -17,7 +17,7 @@ export class AppointmentsService {
   }
 
   bookAppointment(appointment: Appointment): Observable<any> {
-    return this.http.post(this.apiUrl, appointment);
+    return this.http.post(this.apiUrl/appointments, appointment);
   }
 
   deleteAppointment(appointmentId: string): Observable<void> {
