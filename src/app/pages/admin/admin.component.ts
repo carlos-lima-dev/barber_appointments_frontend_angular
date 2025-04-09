@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
     email: '',
     date: '',
     service: '',
-    barber: '',
+    artist: '',
   };
   availableTimes: string[] = [
     '10:00',
