@@ -34,7 +34,7 @@ export class ModalEditAppointmentComponent {
 
   updateAppointment(): void {
     // Assegura que o barbeiro seja sempre "Luis"
-    this.appointment.barber = 'Luis';
+    this.appointment.artist = 'Luis';
 
     if (this.appointment._id) {
       this.appointmentsService.updateAppointment(this.appointment).subscribe({
