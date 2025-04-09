@@ -20,7 +20,7 @@ export class ModalEditAppointmentComponent {
     email: '',
     date: '',
     service: '',
-    barber: 'Luis',
+    artist: 'Luis',
   };
   @Input() isVisible: boolean = false;
   @Output() close = new EventEmitter<void>();
